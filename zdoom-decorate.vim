@@ -115,6 +115,12 @@ syntax match decorateComment '//.*$'
 
 
 " ==========
+" Regions
+" ==========
+
+syntax region decorateString start='"' end= '"'
+
+
 " ==========
 " Syntax highlighting
 " ==========
@@ -125,6 +131,7 @@ let b:current_syntax = "zdec"
 
 hi def link decorateGeneral Statement
 hi link decorateComment Comment
+hi link decorateString String
 hi link decorateFunc Function
 hi link decorateFlags Type
 hi link decorateFlagsSkulltag Type
