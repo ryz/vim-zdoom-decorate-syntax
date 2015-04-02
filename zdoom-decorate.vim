@@ -107,11 +107,24 @@ syntax keyword decorateFlags ACTIVATEIMPACT ACTIVATEMCROSS ACTIVATEPCROSS ACTLIK
 syntax keyword decorateFlagsSkulltag ALLOWCLIENTSPAWN CLIENTSIDEONLY SCOREPILLAR NONETID
 
 
+" ==========
+" Matches
+" ==========
+
+syntax match decorateComment '//.*$'
+
+
+" ==========
+" ==========
 " Syntax highlighting
+" ==========
+
+" def means default color - colorschemes can override them
 
 let b:current_syntax = "zdec"
 
 hi def link decorateGeneral Statement
+hi link decorateComment Comment
 hi link decorateFunc Function
 hi link decorateFlags Type
 hi link decorateFlagsSkulltag Type
