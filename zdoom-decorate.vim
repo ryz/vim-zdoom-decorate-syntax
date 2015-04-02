@@ -5,12 +5,12 @@
 " Last Modified: 2015-04-02 
 "       Version: 0.1
 "       Changes: 
-"       Credits: Simon 'sirjuddington' Judd for SLADE and his hard work
+"       Credits: Simon 'sirjuddington' Judd for SLADE and his hard work!
 " ==========
 
-if exists("b:current_syntax")
-    finish
-endif
+"if exists("b:current_syntax")
+"    finish
+"endif
 
 syntax case ignore
 
@@ -20,6 +20,7 @@ syntax case ignore
 
 " General keywords
 syntax keyword decorateGeneral Actor States Spawn See Melee Missile Pain Death XDeath Burn Ice Disintegrate Raise Heal Crash Crush Wound Greetings Yes No Extreme Bounce Floor Ceiling Wall Creature Loop Stop Wait Fail Goto Ready Deselect Select Fire AltFire Hold AltHold Flash AltFlash Reload Zoom Pickup Use Drop Bright Fast Slow NoDelay CanRaise Idle Active Inactive Light Offset Action Native Const Enum Replaces LightDone Super Spray GenericFreezeDeath GenericCrush
+syntax keyword decorateGeneral #INCLUDE
 
 """ Actor properties
 
@@ -188,14 +189,29 @@ syntax keyword decorateConstFlagsSkulltag ALLOWCLIENTSPAWN CLIENTSIDEONLY SCOREP
 " Matches
 " ==========
 
-syntax match decorateComment '//.*$'
+" ints
+syntax match decorateNumber '\d\+'
+"syntax match decorateNumber '[-+]\d\+'
+
+" floats
+syntax match decorateFloat '\d\+\.\d*'
+"syntax match decorateFloat '[-+]\d\+\.\d*'
+
+syntax match decorateOperator '\v\:'
+syntax match decorateOperator '\v\+'
+syntax match decorateOperator '\v\-'
+
+syntax match decorateComment '\/\/.*$'
 
 
 " ==========
 " Regions
 " ==========
 
-syntax region decorateString start='"' end= '"'
+syntax region decorateString start='"' end='"'
+syntax region decorateDescBlock start='{' end='}' transparent
+syntax region decorateFuncBlock start='(' end=')' transparent
+syntax region decorateCommentMulti start='\/\*' end='\*\/'
 
 
 " ==========
@@ -206,11 +222,15 @@ syntax region decorateString start='"' end= '"'
 
 let b:current_syntax = "zdec"
 
-hi def link decorateGeneral Statement
+hi def link decorateGeneral Keyword
 hi link decorateComment Comment
+hi link decorateCommentMulti Comment
+hi link decorateNumber Float
+hi link decorateFloat Float
 hi link decorateString String
 hi link decorateFunc Function
-
+hi link decorateClass Function
+hi link decorateOperator Operator
 hi link decorateConstGeneral Type
 hi link decorateConstFlags Type
 hi link decorateConstFlagsSkulltag Type
