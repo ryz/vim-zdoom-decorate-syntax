@@ -1,10 +1,12 @@
 " ==========
 " Vim syntax file
 "      Language: ZDoom Decorate
-"    Maintainer: Steve 'ryz' Hassenpflug 
+"    Maintainer: Steve 'ryz' Hassenpflug <ryzawy@gmail.com>
 " Last Modified: 2015-04-02 
-"       Version: 0.1
-"       Changes: 
+"       Version: 1.0
+"       Changes: All keywords, functions and constants from SLADE are in
+"                See https://github.com/ryz/vim-zdoom-decorate-syntax for the
+"                latest version!
 "       Credits: Simon 'sirjuddington' Judd for SLADE and his hard work!
 " ==========
 
